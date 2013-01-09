@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ti:app xmlns:ti='http://ti.appcelerator.org'>
 <!-- These values are edited/maintained by Titanium Developer -->
-<id>com.appcelerator.phpmysqldemo</id>
+<id>com.tidesdk.phpmysqldemo</id>
 <name>php_mysql_demo</name>
 <version>1.0</version>
 <publisher>marshall</publisher>
-<url>www.appcelerator.com</url>
+<url>www.tidesdk.org</url>
 <icon>default_app_logo.png</icon>
 <copyright>2010 by marshall</copyright>
 <!-- Window Definition - these values can be edited -->
@@ -13,10 +13,10 @@
 <id>initial</id>
 <title>mysql_demo</title>
 <url>app://index.html</url>
-<width>400</width>
+<width>800</width>
 <max-width>3000</max-width>
 <min-width>0</min-width>
-<height>400</height>
+<height>800</height>
 <max-height>3000</max-height>
 <min-height>0</min-height>
 <fullscreen>false</fullscreen>

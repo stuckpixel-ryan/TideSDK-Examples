@@ -9,7 +9,7 @@ var fetchRepoList = function() {
 	    	e.preventDefault();
 	    	
 	    	if ($(this).hasClass('repo') === true) {
-	    		Titanium.Platform.openURL($(this).attr('href'));
+	    		Ti.Platform.openURL($(this).attr('href'));
 	    	} else if ($(this).hasClass('watchercount') === true) {
 	    		fetchWatchersList($(this).attr('rel'));
 	    	}
@@ -86,6 +86,6 @@ $(window).load(function() {
     
     $("#general-content-overlay").delegate("a.blog-link", "click", function(e){
     	e.preventDefault();
-		Titanium.Platform.openURL($(this).attr('href'));
+		Ti.Platform.openURL($(this).attr('href'));
     });
 });

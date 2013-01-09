@@ -8,15 +8,15 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js" charset="utf-8"></script>
 		<script src="ejs/ejs_production.js" charset="utf-8"></script>
 		<script src="index.js" type="text/javascript"></script>
+		<script type="text/python" src="nodejs/nodejs.py"></script>
 		<script>
-		    Titanium.include("nodejs/nodejs.py");
 		    var njs = TiNodeJS();
 		    njs.startup(function(){
 		    	fetchRepoList();
 		    });
 		    
 		    //Shutdown node when the app exits
-			Titanium.API.addEventListener(Titanium.EXIT, function(e) {
+			Ti.API.addEventListener(Ti.EXIT, function(e) {
 				njs.shutdown();
 			});
 		</script>

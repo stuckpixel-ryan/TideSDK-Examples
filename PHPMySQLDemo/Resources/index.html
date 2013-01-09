@@ -1,5 +1,7 @@
 <html>
 <body>
+<h1>TideSDK Examples</h1>
+<h3>PHP/MySQL</h3>
 	<script type="text/php">
 		function fetch_data() {
 			global $document, $window;
@@ -10,18 +12,39 @@
 				mysql_connect("ensembldb.ensembl.org", "anonymous", "") or $window->alert(mysql_error());
 				mysql_select_db("homo_sapiens_core_47_36i") or $window->alert(mysql_error());
 				
-				$result = mysql_query("select * from assembly LIMIT 0,5");
-				$row = mysql_fetch_array($result);
+				$result = mysql_query($document->getElementById("q")->value);
+
+		while($row=mysql_fetch_array($result))
+		{ if($row) $r[] = $row; }
+
+		$print_this = "<pre>".var_export($r, true)."</pre>";
+		
+
+			//	$row = mysql_fetch_array($result);
 				
-				$asm_seq_region_id = $row["asm_seq_region_id"];
+			//	$asm_seq_region_id = $row["asm_seq_region_id"];
 				
-				$document->getElementById("data")->innerHTML = "asm_seq_region_id = $asm_seq_region_id";		
+				$document->getElementById("data")->innerHTML = $print_this;		
 			};
 			
 			$window->setTimeout($fn, 500);
 		}
 	</script>
-	
+	<label for="host">Hostname</label>
+	<input type="text" value="ensembldb.ensembl.org" name="host" id="host" /><br /><span style="font-size:small"><a href="http://useast.ensembl.org/info/docs/api/core/core_schema.html" target="_blank">Click for schema information from Ensembl</a></span>
+	<br />
+	<label for="user">User</label>
+	<input type="text" value="anonymous" name="user" id="user" />
+	<br />
+	<label for="pass">Password</label>
+	<input type="text" value="" name="pass" id="pass" />
+	<br />
+	<label for="database">Database</label>
+	<input type="text" value="homo_sapiens_core_47_36i" name="database" id="database" />
+	<br />
+	<label for="q">Query</label><br />
+	<textarea name="q" id="q">select * from assembly LIMIT 0,5</textarea><br />
+
 	<button onclick="fetch_data();">Fetch Data</button>
 	
 	<div id="data">
